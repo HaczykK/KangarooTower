@@ -9,35 +9,33 @@
 #include "Platform.h"
 #include "Background.h"
 #include "Wall.h"
+#include "CameraManager.h"
+#include "ScoreManager.h"
+#include "GameOverScreen.h"
 #include "Soundtrack.h"
-
-
-
 
 enum GameState {
     MENU,
-    GAME
+    GAME,
+    GAME_OVER,
 };
 
+int score = -1;
+float lastPlatformY = 550.f; // pocz¹tkowa wysokoœæ
 
-
-
-float lastPlatformY = 550.f; // na pocz¹tku
-
-void generatePlatforms(std::vector<Platform>& platforms, float viewTop) {
+void generatePlatforms(std::vector<Platform>& platforms, float viewTop, sf::Texture* platformTexture) {
     while (lastPlatformY > viewTop - 600.f) {
-        float x = static_cast<float>(rand() % 400 + 50); // losowa pozycja X
-        lastPlatformY -= 120.f; // co 100px
-        platforms.emplace_back(sf::Vector2f(120.f, 20.f), sf::Vector2f(x, lastPlatformY));
+        float x = static_cast<float>(66 + rand() % 500 + 50); // losowa pozycja X
+        lastPlatformY -= 140.f;
+        platforms.emplace_back(platformTexture, sf::Vector2f(x, lastPlatformY));
     }
 }
 
-
 int main() {
-
     GameState currentState = MENU;
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Kangaroo Tower");
+
     sf::Image icon;
     if (!icon.loadFromFile("iconv3.png")) {
         std::cerr << "Nie uda³o siê za³adowaæ ikony!" << std::endl;
@@ -46,37 +44,49 @@ int main() {
         window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     }
 
-    //stale 60 fps
     window.setFramerateLimit(60);
 
-    //tlo menu
-    Menu menu(window.getSize().x, window.getSize().y, "T³o menuv1.png"); 
+    Menu menu(window.getSize().x, window.getSize().y, "T³o menuv1.png");
 
-    //soundtrack
+    bool canAcceptInputInMenu = true;
+
     Soundtrack soundtrack;
     soundtrack.load(0, "song1.ogg");
     soundtrack.load(1, "song2.ogg");
     soundtrack.start();
 
     sf::View view = window.getDefaultView();
+    CameraManager cameraManager(&view, 100.f);
+
     srand(static_cast<unsigned>(time(0)));
 
-    //tlo gry
-    Background backgorund("tlov5.png"); //tlo gry
+    Background backgorund("tlov5.png");
 
-    //sprite gracza
-    Player player("kangurv15.png", sf::Vector2f(100.f, 400.f)); //spirte kangura
+    Player player("kangurv15.png", sf::Vector2f(300.f, 400.f));
+
+    sf::Texture platformTexture;
+    if (!platformTexture.loadFromFile("platformav1.png")) {
+        std::cerr << "Nie uda³o siê za³adowaæ platformy!" << std::endl;
+        return -1;
+    }
+
+    sf::Texture wallTexture;
+    if (!wallTexture.loadFromFile("scianav2.png")) {
+        std::cerr << "Nie uda³o siê za³adowaæ tekstury œcian!" << std::endl;
+        return -1;
+    }
 
     std::vector<Platform> platforms;
-    platforms.emplace_back(sf::Vector2f(400.f, 20.f), sf::Vector2f(0.f, 580.f));
+    platforms.emplace_back(&platformTexture, sf::Vector2f(0.f, 560.f), sf::Vector2f(800.f, 20.f));
 
-    const float wallWidth = 50.f;
-    Wall leftWall(0.f, 10000.f, wallWidth);
-    Wall rightWall(800.f - wallWidth, 10000.f, wallWidth);
+    const float wallWidth = 66.f;
+    Wall leftWall(&wallTexture, 0.f, wallWidth);
+    Wall rightWall(&wallTexture, 800.f - wallWidth, wallWidth);
+
+    ScoreManager scoreManager;
+    GameOverScreen gameOverScreen(window.getSize().x);
 
     sf::Clock clock;
-
-
 
     while (window.isOpen()) {
         sf::Event event;
@@ -86,31 +96,41 @@ int main() {
 
             if (currentState == MENU) {
                 if (event.type == sf::Event::KeyReleased) {
-                    switch (event.key.code) {
-                    case sf::Keyboard::W:
-                        menu.moveUp();
-                        break;
-                    case sf::Keyboard::S:
-                        menu.moveDown();
-                        break;
-                    case sf::Keyboard::Enter:
-                        switch (menu.getPressedItem()) {
-                        case 0: // "Graj"
-                            currentState = GAME;
-                            break;
-                        case 1: // "Opcje"
-                            std::cout << "Opcje (do zrobienia)" << std::endl;
-                            break;
-                        case 2: // "Wyniki"
-                            std::cout << "Wyniki (do zrobienia)" << std::endl;
-                            break;
-                        case 3: // "Wyjdz"
-                            window.close();
-                            break;
+                    if (event.key.code == sf::Keyboard::Enter) {
+                        if (canAcceptInputInMenu) {
+                            switch (menu.getPressedItem()) {
+                            case 0:
+                                currentState = GAME;
+                                break;
+                            case 1:
+                                std::cout << "Opcje(w przyszlosci)" << std::endl;
+                                break;
+                            case 2:
+                                std::cout << "Wyniki(w przyszlosci)" << std::endl;
+                                break;
+                            case 3:
+                                window.close();
+                                break;
+                            }
+                            canAcceptInputInMenu = false;  // zablokuj do czasu a¿ puœci Enter
                         }
-                        break;
+                    }
+                    else if ((event.key.code == sf::Keyboard::W) || (event.key.code == sf::Keyboard::Up)) {
+                        menu.moveUp();
+                    }
+                    else if ((event.key.code == sf::Keyboard::S) || (event.key.code == sf::Keyboard::Down)) {
+                        menu.moveDown();
                     }
                 }
+
+                // Odblokuj ponownie, jeœli ENTER zosta³ puszczony
+                if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Enter) {
+                    canAcceptInputInMenu = true;
+                }
+            }
+
+            if (currentState == GAME_OVER) {
+                gameOverScreen.update(event);
             }
         }
 
@@ -124,58 +144,97 @@ int main() {
             continue;
         }
 
+        if (currentState == GAME_OVER) {
+            if (gameOverScreen.isDone()) {
+                std::string nick = gameOverScreen.getEnteredName();
+                scoreManager.saveScoreToFile(nick);
+
+                // Resetuj GameOverScreen
+                gameOverScreen.reset();
+
+                // Reset gry
+                player.reset(sf::Vector2f(300.f, 400.f));
+                platforms.clear();
+                lastPlatformY = 550.f;
+                platforms.emplace_back(&platformTexture, sf::Vector2f(0.f, 560.f), sf::Vector2f(800.f, 20.f));
+                view = window.getDefaultView();
+                cameraManager = CameraManager(&view, 100.f);
+                scoreManager.reset();
+
+                currentState = MENU; 
+                canAcceptInputInMenu = false;// Wróæ do menu
+                continue;
+            }
+
+            //  USTAW WIDOK, RYSUJ T£O + DODAJ GameOverScreen
+            window.setView(window.getDefaultView());  //  bardzo wa¿ne
+            window.clear();
+
+            backgorund.draw(window, window.getView());  // <rysuj t³o (to samo co w grze)
+            gameOverScreen.draw(window);                //  teksty Game Over, wynik, wpisz nick
+            window.display();
+            continue;
+        }
+
+        
+
+        if (currentState == MENU) {
+            window.clear();
+            soundtrack.update(deltaTime);
+            menu.draw(window);
+            window.display();
+            continue;
+        }
+
+        
+
+           
+
+        // GAME logic
         soundtrack.update(deltaTime);
-
-        generatePlatforms(platforms, view.getCenter().y);
-
+        generatePlatforms(platforms, view.getCenter().y, &platformTexture);
         player.handleInput();
         player.update(deltaTime);
 
-        // Kolizja z bocznymi œcianami
+        if (!cameraManager.isActivated() && player.getVelocity().y < 0.f) {
+            cameraManager.activate();
+        }
+
         if (player.getBounds().intersects(leftWall.getBounds())) {
             player.setPosition(leftWall.getBounds().left + leftWall.getBounds().width, player.getPosition().y);
+            player.bounceFromWall(true);
         }
         if (player.getBounds().intersects(rightWall.getBounds())) {
             player.setPosition(rightWall.getBounds().left - player.getBounds().width, player.getPosition().y);
+            player.bounceFromWall(false);
         }
-
-        // Kolizja z platformami
-        for (auto& platform : platforms)
-            platform.draw(window);
 
         for (auto& platform : platforms) {
-            if (player.getBounds().intersects(platform.getBounds()) &&
-                player.getVelocity().y > 0 && // gracz spada
-                player.getPosition().y + player.getBounds().height <= platform.getPosition().y + 10.f) // dodatkowe zabezpieczenie
-            {
-                player.land(platform.getPosition().y - player.getBounds().height);
-                break;
-            }
+            scoreManager.updateScoreIfNeeded(player, platform, cameraManager);
         }
 
-        // Scrollowanie kamery
         sf::Vector2f playerPos = player.getPosition();
 
-        if (playerPos.y < view.getCenter().y - 100) {
-            view.setCenter(view.getCenter().x, playerPos.y + 100);
-
-            //  GENERUJ NOWE PLATFORMY powy¿ej ekranu
-            generatePlatforms(platforms, view.getCenter().y);
+        bool gameOver = cameraManager.update(deltaTime, playerPos);
+        if (gameOver) {
+            std::cout << "Game Over!\n";
+            gameOverScreen.setScore(scoreManager.getScore());
+            currentState = GAME_OVER;
+            continue;
         }
 
         window.setView(view);
-        // Usuwanie platform z do³u
-       // platforms.erase(
-       //     std::remove_if(platforms.begin(), platforms.end(), [&](const Platform& p) {
-        //        return p.getPosition().y > view.getCenter().y + view.getSize().y;
-        //        }),
-        //    platforms.end()
-       // );
-
-
         window.clear(sf::Color::Cyan);
 
+        platforms.erase(
+            std::remove_if(platforms.begin(), platforms.end(), [&](const Platform& p) {
+                return p.getPosition().y > view.getCenter().y + view.getSize().y;
+                }),
+            platforms.end()
+        );
 
+        leftWall.update(view);
+        rightWall.update(view);
         backgorund.draw(window, view);
 
         for (auto& platform : platforms)
@@ -185,8 +244,7 @@ int main() {
         rightWall.draw(window);
 
         player.draw(window);
-
-        
+        scoreManager.draw(window, view);
 
         window.display();
     }

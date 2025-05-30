@@ -5,11 +5,16 @@
 class EXPORT_API Wall
 {
 public:
-	Wall(float x, float height, float width);
+    Wall(sf::Texture* texture, float x, float width);
 
-	void draw(sf::RenderWindow& window);
-	sf::FloatRect getBounds() const;
+    void draw(sf::RenderWindow& window);
+    void update(const sf::View& view); // aktualizuje pozycjê wzglêdem kamery
+
+    sf::FloatRect getBounds() const;
 
 private:
-	sf::RectangleShape shape;
+    sf::Sprite sprite;
+    sf::Texture* texture;
+    float width;
+    float xPos;
 };

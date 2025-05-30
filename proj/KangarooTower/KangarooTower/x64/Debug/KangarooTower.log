@@ -1,12 +1,12 @@
 ﻿  main.cpp
-P:\proj\KangarooTower\main.cpp(53,51): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
-P:\proj\KangarooTower\main.cpp(53,51): warning C4244:         with
-P:\proj\KangarooTower\main.cpp(53,51): warning C4244:         [
-P:\proj\KangarooTower\main.cpp(53,51): warning C4244:             T=unsigned int
-P:\proj\KangarooTower\main.cpp(53,51): warning C4244:         ]
-P:\proj\KangarooTower\main.cpp(53,31): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
-P:\proj\KangarooTower\main.cpp(53,31): warning C4244:         with
-P:\proj\KangarooTower\main.cpp(53,31): warning C4244:         [
-P:\proj\KangarooTower\main.cpp(53,31): warning C4244:             T=unsigned int
-P:\proj\KangarooTower\main.cpp(53,31): warning C4244:         ]
+P:\proj\KangarooTower\main.cpp(49,51): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+P:\proj\KangarooTower\main.cpp(49,51): warning C4244:         with
+P:\proj\KangarooTower\main.cpp(49,51): warning C4244:         [
+P:\proj\KangarooTower\main.cpp(49,51): warning C4244:             T=unsigned int
+P:\proj\KangarooTower\main.cpp(49,51): warning C4244:         ]
+P:\proj\KangarooTower\main.cpp(49,31): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+P:\proj\KangarooTower\main.cpp(49,31): warning C4244:         with
+P:\proj\KangarooTower\main.cpp(49,31): warning C4244:         [
+P:\proj\KangarooTower\main.cpp(49,31): warning C4244:             T=unsigned int
+P:\proj\KangarooTower\main.cpp(49,31): warning C4244:         ]
   KangarooTower.vcxproj -> P:\proj\KangarooTower\x64\Debug\KangarooTower.exe

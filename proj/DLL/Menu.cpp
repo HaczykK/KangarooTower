@@ -41,7 +41,7 @@ Menu::Menu(float width, float height, const std::string& backgroundPath)
 			frameY + optionSpacing * (i + 1) - bounds.height / 2.f
 		);
 	}
-	if (!cursorTexture.loadFromFile("rekawicav2.png")) {
+	if (!cursorTexture.loadFromFile("rekawicav3.png")) {
 		// obs³u¿ b³¹d ³adowania, np. wypisz w konsoli
 		
 	}

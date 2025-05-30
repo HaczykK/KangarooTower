@@ -1,19 +1,37 @@
 #include "Platform.h"
 
-Platform::Platform(sf::Vector2f size, sf::Vector2f position) {
-    shape.setSize(size);
-    shape.setFillColor(sf::Color::Black); // Mo¿na zmieniæ na teksturê
-    shape.setPosition(position);
+Platform::Platform(sf::Texture* tex, sf::Vector2f pos) 
+{
+    texture = tex;
+    sprite.setTexture(*texture);
+    sprite.setPosition(pos);
+    position = pos;
 }
 
-void Platform::draw(sf::RenderWindow& window) {
-    window.draw(shape);
+Platform::Platform(sf::Texture* tex, sf::Vector2f pos, sf::Vector2f size)
+{
+    texture = tex;
+    sprite.setTexture(*texture);
+    sprite.setPosition(pos);
+
+    // Skalowanie tekstury do po¿¹danego rozmiaru
+    sf::Vector2u textureSize = texture->getSize();
+    sprite.setScale(size.x / textureSize.x, size.y / textureSize.y);
+
+    position = pos;
 }
 
-sf::FloatRect Platform::getBounds() const {
-    return shape.getGlobalBounds();
+void Platform::draw(sf::RenderWindow& window) 
+{
+    window.draw(sprite);
 }
 
-sf::Vector2f Platform::getPosition() const {
-    return shape.getPosition();
+sf::FloatRect Platform::getBounds() const 
+{
+    return sprite.getGlobalBounds();
+}
+
+sf::Vector2f Platform::getPosition() const 
+{
+    return sprite.getPosition();
 }

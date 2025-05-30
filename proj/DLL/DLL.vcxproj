@@ -141,17 +141,23 @@ copy /Y "$(SolutionDir)x64\Debug\*lib" "P:\lib"</Command>
   <ItemGroup>
     <ClInclude Include="API.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="CameraManager.h" />
+    <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="Soundtrack.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
+    <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Soundtrack.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>

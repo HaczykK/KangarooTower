@@ -5,12 +5,19 @@
 class EXPORT_API Platform
 {
 private:
-	sf::RectangleShape shape;
+    sf::Sprite sprite;
+    sf::Texture* texture; // wskaünik, nie kopia
+    sf::Vector2f position;
+    bool scored = false;
 
 public:
-	Platform(sf::Vector2f size, sf::Vector2f position);
+    Platform(sf::Texture* texture, sf::Vector2f position);
+    Platform(sf::Texture* texture, sf::Vector2f position, sf::Vector2f size);
 
-	void draw(sf::RenderWindow& window);
-	sf::FloatRect getBounds() const;
-	sf::Vector2f getPosition() const;
+    void draw(sf::RenderWindow& window);
+    sf::FloatRect getBounds() const;
+    sf::Vector2f getPosition() const;
+
+    bool isScored() const { return scored; }
+    void markScored() { scored = true; }
 };

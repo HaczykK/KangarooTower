@@ -1,20 +1,16 @@
-﻿  Background.cpp
-  Menu.cpp
-  Platform.cpp
-  Player.cpp
-  Soundtrack.cpp
-  Wall.cpp
-  Generowanie kodu...
-     Trwa tworzenie biblioteki P:\proj\KangarooTower\x64\Debug\DLL.lib i obiektu P:\proj\KangarooTower\x64\Debug\DLL.exp
+﻿  ScoreManager.cpp
   DLL.vcxproj -> P:\proj\KangarooTower\x64\Debug\DLL.dll
   P:\proj\DLL\API.h
   P:\proj\DLL\Background.h
+  P:\proj\DLL\CameraManager.h
+  P:\proj\DLL\GameOverScreen.h
   P:\proj\DLL\Menu.h
   P:\proj\DLL\Platform.h
   P:\proj\DLL\Player.h
+  P:\proj\DLL\ScoreManager.h
   P:\proj\DLL\Soundtrack.h
   P:\proj\DLL\Wall.h
-          7 file(s) copied.
+         10 file(s) copied.
   P:\proj\KangarooTower\x64\Debug\DLL.dll
           1 file(s) copied.
   P:\proj\KangarooTower\x64\Debug\DLL.lib

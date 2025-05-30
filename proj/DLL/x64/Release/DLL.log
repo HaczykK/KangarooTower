@@ -1,0 +1,28 @@
+﻿  Background.cpp
+P:\proj\DLL\Background.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Background.cpp”)
+  
+  CameraManager.cpp
+P:\proj\DLL\CameraManager.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „CameraManager.cpp”)
+  
+  Menu.cpp
+P:\proj\DLL\Menu.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Menu.cpp”)
+  
+  Platform.cpp
+P:\proj\DLL\Platform.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Platform.cpp”)
+  
+  Player.cpp
+P:\proj\DLL\Player.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Player.cpp”)
+  
+  Soundtrack.cpp
+P:\proj\DLL\Soundtrack.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Audio.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Soundtrack.cpp”)
+  
+  Wall.cpp
+P:\proj\DLL\Wall.h(3,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Wall.cpp”)
+  
