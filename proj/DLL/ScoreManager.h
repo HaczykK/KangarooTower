@@ -6,7 +6,8 @@
 #include "CameraManager.h"
 #include <string>
 
-class EXPORT_API ScoreManager {
+class EXPORT_API ScoreManager 
+{
 private:
     int score;
     float lastScoredY;
@@ -25,6 +26,6 @@ public:
     void draw(sf::RenderWindow& window, const sf::View& view);
 
     void saveScoreToFile(const std::string& nick);
-    void loadScoresFromFile(); // mo¿esz sobie to rozbudowaæ np. do wyœwietlania
+    std::vector<std::string> getScoresAsStrings();
 
 };

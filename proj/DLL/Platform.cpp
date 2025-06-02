@@ -14,7 +14,7 @@ Platform::Platform(sf::Texture* tex, sf::Vector2f pos, sf::Vector2f size)
     sprite.setTexture(*texture);
     sprite.setPosition(pos);
 
-    // Skalowanie tekstury do po¿¹danego rozmiaru
+    
     sf::Vector2u textureSize = texture->getSize();
     sprite.setScale(size.x / textureSize.x, size.y / textureSize.y);
 

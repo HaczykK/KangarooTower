@@ -2,7 +2,8 @@
 #include "API.h"
 #include <SFML/Graphics.hpp>
 
-class EXPORT_API CameraManager {
+class EXPORT_API CameraManager 
+{
 private:
     sf::View* view;
     float baseSpeed;

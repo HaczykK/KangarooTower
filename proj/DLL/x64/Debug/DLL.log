@@ -1,16 +1,24 @@
-﻿  ScoreManager.cpp
+﻿  CameraManager.cpp
+  GameOverScreen.cpp
+  Menu.cpp
+  Options.cpp
+  Player.cpp
+  ScoreManager.cpp
+  Soundtrack.cpp
+  Generowanie kodu...
   DLL.vcxproj -> P:\proj\KangarooTower\x64\Debug\DLL.dll
   P:\proj\DLL\API.h
   P:\proj\DLL\Background.h
   P:\proj\DLL\CameraManager.h
   P:\proj\DLL\GameOverScreen.h
   P:\proj\DLL\Menu.h
+  P:\proj\DLL\Options.h
   P:\proj\DLL\Platform.h
   P:\proj\DLL\Player.h
   P:\proj\DLL\ScoreManager.h
   P:\proj\DLL\Soundtrack.h
   P:\proj\DLL\Wall.h
-         10 file(s) copied.
+         11 file(s) copied.
   P:\proj\KangarooTower\x64\Debug\DLL.dll
           1 file(s) copied.
   P:\proj\KangarooTower\x64\Debug\DLL.lib

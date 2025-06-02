@@ -144,6 +144,7 @@ copy /Y "$(SolutionDir)x64\Debug\*lib" "P:\lib"</Command>
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Options.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ScoreManager.h" />
@@ -155,6 +156,7 @@ copy /Y "$(SolutionDir)x64\Debug\*lib" "P:\lib"</Command>
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Options.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ScoreManager.cpp" />

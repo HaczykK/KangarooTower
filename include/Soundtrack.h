@@ -3,7 +3,8 @@
 #include <SFML/Audio.hpp>
 #include <string>
 
-class EXPORT_API Soundtrack {
+class EXPORT_API Soundtrack 
+{
 public:
     Soundtrack();
     ~Soundtrack();

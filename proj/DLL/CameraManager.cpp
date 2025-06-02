@@ -5,11 +5,13 @@ CameraManager::CameraManager(sf::View* gameView, float speed)
 {
 }
 
-void CameraManager::activate() {
+void CameraManager::activate() 
+{
     isActive = true;
 }
 
-bool CameraManager::isActivated() const {
+bool CameraManager::isActivated() const 
+{
     return isActive;
 }
 
@@ -20,10 +22,12 @@ bool CameraManager::update(float dt, const sf::Vector2f& playerPos)
     // jeœli gracz jest wy¿ej ni¿ œrodek kamery, to przesuwamy kamerê, ale nie wyprzedzamy gracza
     float cameraY = view->getCenter().y;
 
-    if (playerPos.y < cameraY - 100.f) {
+    if (playerPos.y < cameraY - 100.f) 
+    {
         view->setCenter(view->getCenter().x, playerPos.y + 100.f);
     }
-    else {
+    else 
+    {
         view->move(0, -currentSpeed * dt); // goni gracza
     }
 
@@ -36,10 +40,12 @@ sf::View& CameraManager::getView()
     return *view;
 }
 
-void CameraManager::setSpeed(float speed) {
+void CameraManager::setSpeed(float speed) 
+{
     currentSpeed = speed;
 }
 
-float CameraManager::getSpeed() const {
+float CameraManager::getSpeed() const 
+{
     return currentSpeed;
 }

@@ -27,7 +27,8 @@ Menu::Menu(float width, float height, const std::string& backgroundPath)
 
 	float optionSpacing = frameHeight / (MAX_NUMBER_OF_ITEMS + 1);
 
-	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
+	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) 
+	{
 		menu[i].setFont(font);
 		menu[i].setCharacterSize(40);
 		menu[i].setString(texts[i]);
@@ -35,26 +36,26 @@ Menu::Menu(float width, float height, const std::string& backgroundPath)
 
 		sf::FloatRect bounds = menu[i].getLocalBounds();
 
-		// Pozycja wyœrodkowana poziomo i roz³o¿ona pionowo w ramce
+		// Pozycja wyœrodkowana poziomo 
 		menu[i].setPosition(
 			frameX + frameWidth / 2.f - bounds.width / 2.f,
 			frameY + optionSpacing * (i + 1) - bounds.height / 2.f
 		);
 	}
 	if (!cursorTexture.loadFromFile("rekawicav3.png")) {
-		// obs³u¿ b³¹d ³adowania, np. wypisz w konsoli
+		
 		
 	}
 
-	// ustaw sprite kursora (zak³adam, ¿e obrazek ma np. 32x32 px)
+	// ustaw sprite kursora 
 	cursorSprite.setTexture(cursorTexture);
-	///cursorSprite.setScale(0.2f, 0.2f);  // mo¿esz dostosowaæ skalê, jeœli za du¿y
+	
 
-	// ustaw pocz¹tkow¹ pozycjê kursora przy pierwszym elemencie menu:
+	// pocz¹tkowa pozycja kursora 
 	sf::FloatRect firstBounds = menu[0].getGlobalBounds();
 	cursorSprite.setPosition(
-		firstBounds.left + firstBounds.width ,  // trochê na lewo od tekstu
-		firstBounds.top //+ firstBounds.height / 2 - cursorTexture.getSize().y * 0.25f  // wycentrowane pionowo
+		firstBounds.left + firstBounds.width ,  
+		firstBounds.top 
 	);
 
 	selectedItemIndex = 0;
@@ -83,7 +84,7 @@ void Menu::moveUp()
 		sf::FloatRect bounds = menu[selectedItemIndex].getGlobalBounds();
 		cursorSprite.setPosition(
 			bounds.left + bounds.width + 5.f,
-			bounds.top //+ bounds.height / 2 - cursorTexture.getSize().y * 0.25f
+			bounds.top 
 		);
 	}
 }
@@ -99,7 +100,7 @@ void Menu::moveDown()
 		sf::FloatRect bounds = menu[selectedItemIndex].getGlobalBounds();
 		cursorSprite.setPosition(
 			bounds.left + bounds.width + 5.f,
-			bounds.top //+ bounds.height / 2 - cursorTexture.getSize().y * 0.25f
+			bounds.top 
 		);
 	}
 }

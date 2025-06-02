@@ -2,8 +2,10 @@
 #include <iostream>
 #include <sstream>
 
-GameOverScreen::GameOverScreen(unsigned int windowWidth) {
-    if (!font.loadFromFile("NoctraDrip-OutlineMelt.ttf")) {
+GameOverScreen::GameOverScreen(unsigned int windowWidth) 
+{
+    if (!font.loadFromFile("NoctraDrip-OutlineMelt.ttf")) 
+    {
         std::cerr << "Nie uda³o siê za³adowaæ czcionki!" << std::endl;
     }
 
@@ -25,23 +27,29 @@ GameOverScreen::GameOverScreen(unsigned int windowWidth) {
     inputText.setString("Wpisz nick: ");
 }
 
-void GameOverScreen::setScore(int score) {
+void GameOverScreen::setScore(int score) 
+{
     std::stringstream ss;
     ss << "Twoj wynik: " << score;
     scoreText.setString(ss.str());
 }
 
-void GameOverScreen::update(const sf::Event& event) {
+void GameOverScreen::update(const sf::Event& event) 
+{
     if (enterPressed) return;
 
-    if (event.type == sf::Event::TextEntered) {
-        if (event.text.unicode == '\b' && !playerInput.empty()) {
+    if (event.type == sf::Event::TextEntered) 
+    {
+        if (event.text.unicode == '\b' && !playerInput.empty()) 
+        {
             playerInput.pop_back();
         }
-        else if (event.text.unicode == '\r' || event.text.unicode == '\n') {
+        else if (event.text.unicode == '\r' || event.text.unicode == '\n') 
+        {
             enterPressed = true;
         }
-        else if (event.text.unicode >= 32 && event.text.unicode < 128) {
+        else if (event.text.unicode >= 32 && event.text.unicode < 128) 
+        {
             playerInput += static_cast<char>(event.text.unicode);
         }
 
@@ -49,21 +57,25 @@ void GameOverScreen::update(const sf::Event& event) {
     }
 }
 
-void GameOverScreen::draw(sf::RenderWindow& window) {
+void GameOverScreen::draw(sf::RenderWindow& window) 
+{
     window.draw(gameOverText);
     window.draw(scoreText);
     window.draw(inputText);
 }
 
-bool GameOverScreen::isDone() const {
+bool GameOverScreen::isDone() const 
+{
     return enterPressed;
 }
 
-std::string GameOverScreen::getEnteredName() const {
+std::string GameOverScreen::getEnteredName() const 
+{
     return playerInput.empty() ? "Gracz" : playerInput;
 }
 
-void GameOverScreen::reset() {
+void GameOverScreen::reset() 
+{
     enterPressed = false;
     playerInput.clear();
     inputText.setString("Wpisz nick i nacisnij Enter: ");

@@ -2,31 +2,36 @@
 #include <fstream>
 #include <iostream>
 
-ScoreManager::ScoreManager() : score(-1), lastScoredY(600.f) {
-    if (!font.loadFromFile("NoctraDrip-OutlineMelt.ttf")) {
-        std::cerr << "Nie uda³o siê za³adowaæ czcionki!" << std::endl;
+ScoreManager::ScoreManager() : score(-1), lastScoredY(600.f) 
+{
+    if (!font.loadFromFile("NoctraDrip-OutlineMelt.ttf")) 
+    {
+        std::cerr << "Nie udalo sie zaladowac czcionki!" << std::endl;
     }
 
     scoreText.setFont(font);
     scoreText.setCharacterSize(24);
-    scoreText.setFillColor(sf::Color::Yellow);
+    scoreText.setFillColor(sf::Color::Red);
     scoreText.setPosition(10.f, 10.f);
 }
 
 //Funkcja ktora resetuje wynik przy kolejnym podejsciu 
 
-void ScoreManager::reset() {
+void ScoreManager::reset() 
+{
     score = -1;
     lastScoredY = 600.f;
 }
 
-int ScoreManager::getScore() const {
+int ScoreManager::getScore() const 
+{
     return score;
 }
 
 //Wynik podczas gry 
 
-void ScoreManager::updateScoreIfNeeded(Player& player, Platform& platform, CameraManager& camera) {
+void ScoreManager::updateScoreIfNeeded(Player& player, Platform& platform, CameraManager& camera) 
+{
     float platformY = platform.getPosition().y;
 
     // L¹dowanie
@@ -35,9 +40,11 @@ void ScoreManager::updateScoreIfNeeded(Player& player, Platform& platform, Camer
         player.getPosition().y + player.getBounds().height <= platformY + 10.f)
     {
         player.land(platformY - player.getBounds().height);
-        if (!platform.isScored()) {
+        if (!platform.isScored()) 
+        {
             score++;
-            if (score >= 20) {
+            if (score >= 20) 
+            {
                 float speed = 100.f + (score - 20) * 1.f;
                 camera.setSpeed(speed);
             }
@@ -53,7 +60,8 @@ void ScoreManager::updateScoreIfNeeded(Player& player, Platform& platform, Camer
         player.getPosition().y + player.getBounds().height < platformY)
     {
         score++;
-        if (score >= 20) {
+        if (score >= 20) 
+        {
             float speed = 100.f + (score - 20) * 1.f;
             camera.setSpeed(speed);
         }
@@ -62,7 +70,8 @@ void ScoreManager::updateScoreIfNeeded(Player& player, Platform& platform, Camer
     }
 }
 
-void ScoreManager::draw(sf::RenderWindow& window, const sf::View& view) {
+void ScoreManager::draw(sf::RenderWindow& window, const sf::View& view) 
+{
     scoreText.setString("Score: " + std::to_string(score));
     window.setView(window.getDefaultView());
     window.draw(scoreText);
@@ -71,29 +80,38 @@ void ScoreManager::draw(sf::RenderWindow& window, const sf::View& view) {
 
 //Zapis do pliku
 
-void ScoreManager::saveScoreToFile(const std::string& nick) {
-    std::ofstream file("scores.txt", std::ios::app);
-    if (!file.is_open()) {
-        std::cerr << "Nie uda³o siê otworzyæ pliku do zapisu!" << std::endl;
-        return;
+void ScoreManager::saveScoreToFile(const std::string& nick) 
+{
+    try {
+        std::ofstream file("scores.txt", std::ios::app);
+        if (!file) throw std::ios_base::failure("Nie udalo sie otworzyc pliku do zapisu.");
+        file << nick << " " << score << "\n";
     }
-    file << nick << " " << score << "\n";
-    file.close();
+    catch (const std::exception& e) {
+        std::cerr << "Blad zapisu do pliku: " << e.what() << std::endl;
+    }
 }
 
 //Odczyt z pliku
 
-void ScoreManager::loadScoresFromFile() {
-    std::ifstream file("scores.txt");
-    if (!file.is_open()) {
-        std::cerr << "Brak pliku scores.txt" << std::endl;
-        return;
+std::vector<std::string> ScoreManager::getScoresAsStrings() 
+{
+    std::vector<std::string> results;
+    try {
+        std::ifstream file("scores.txt");
+        if (!file) throw std::ios_base::failure("Nie udalo sie otworzyc pliku do odczytu.");
+
+        std::string name;
+        int s;
+        while (file >> name >> s) 
+        {
+            results.push_back(name + ": " + std::to_string(s));
+        }
+    }
+    catch (const std::exception& e) 
+    {
+        results.push_back(std::string("Blad odczytu wynikow: ") + e.what());
     }
 
-    std::string name;
-    int s;
-    while (file >> name >> s) {
-        std::cout << name << ": " << s << std::endl;
-    }
-    file.close();
+    return results;
 }
