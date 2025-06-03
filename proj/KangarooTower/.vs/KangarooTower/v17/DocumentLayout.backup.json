@@ -3,6 +3,16 @@
   "WorkspaceRootPath": "P:\\proj\\KangarooTower\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\ScoreManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFCDFA19-154C-4BEF-9F11-3E6FB1C0CAB0}|KangarooTower.vcxproj|P:\\proj\\KangarooTower\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AFCDFA19-154C-4BEF-9F11-3E6FB1C0CAB0}|KangarooTower.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Options.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Wall.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -12,13 +22,7 @@
       "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\ScoreManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Platform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Options.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Menu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -34,10 +38,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Background.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AFCDFA19-154C-4BEF-9F11-3E6FB1C0CAB0}|KangarooTower.vcxproj|P:\\proj\\KangarooTower\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AFCDFA19-154C-4BEF-9F11-3E6FB1C0CAB0}|KangarooTower.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2FA43AE-2D9B-47E8-A891-FC0CF4035766}|..\\DLL\\DLL.vcxproj|P:\\proj\\DLL\\Options.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -80,11 +80,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Wall.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Wall.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Wall.cpp",
@@ -97,33 +97,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "P:\\proj\\KangarooTower\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "P:\\proj\\KangarooTower\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAFsBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFIBAAAAAAAAAAAkwHwBAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-22T21:06:09.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ScoreManager.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\ScoreManager.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\ScoreManager.cpp",
               "ToolTip": "P:\\proj\\DLL\\ScoreManager.cpp",
               "RelativeToolTip": "..\\DLL\\ScoreManager.cpp",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAG8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAkwHYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-24T19:06:43.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Options.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Options.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Options.cpp",
@@ -136,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Soundtrack.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Soundtrack.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Soundtrack.cpp",
@@ -144,12 +144,11 @@
               "RelativeToolTip": "..\\DLL\\Soundtrack.cpp",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAADEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-23T15:47:11.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T15:47:11.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Platform.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Platform.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Platform.cpp",
@@ -157,12 +156,11 @@
               "RelativeToolTip": "..\\DLL\\Platform.cpp",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T21:36:14.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T21:36:14.425Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Player.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Player.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Player.cpp",
@@ -170,12 +168,11 @@
               "RelativeToolTip": "..\\DLL\\Player.cpp",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T21:36:27.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T21:36:27.15Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "GameOverScreen.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\GameOverScreen.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\GameOverScreen.cpp",
@@ -183,12 +180,11 @@
               "RelativeToolTip": "..\\DLL\\GameOverScreen.cpp",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAEkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T17:49:47.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T17:49:47.747Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Menu.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Menu.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Menu.cpp",
@@ -196,12 +192,11 @@
               "RelativeToolTip": "..\\DLL\\Menu.cpp",
               "ViewState": "AgIAAEsAAAAAAAAAAAAAAGYAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-23T12:56:13.167Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T12:56:13.167Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Background.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\Background.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\Background.cpp",
@@ -209,12 +204,11 @@
               "RelativeToolTip": "..\\DLL\\Background.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-22T21:35:35.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T21:35:35.808Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CameraManager.cpp",
               "DocumentMoniker": "P:\\proj\\DLL\\CameraManager.cpp",
               "RelativeDocumentMoniker": "..\\DLL\\CameraManager.cpp",
@@ -222,12 +216,11 @@
               "RelativeToolTip": "..\\DLL\\CameraManager.cpp",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-24T17:29:11.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T17:29:11.03Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GameOverScreen.h",
               "DocumentMoniker": "P:\\proj\\DLL\\GameOverScreen.h",
               "RelativeDocumentMoniker": "..\\DLL\\GameOverScreen.h",
@@ -235,8 +228,7 @@
               "RelativeToolTip": "..\\DLL\\GameOverScreen.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T17:48:47.588Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T17:48:47.588Z"
             },
             {
               "$type": "Document",

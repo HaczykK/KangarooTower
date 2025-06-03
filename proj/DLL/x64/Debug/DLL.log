@@ -1,11 +1,4 @@
-﻿  CameraManager.cpp
-  GameOverScreen.cpp
-  Menu.cpp
-  Options.cpp
-  Player.cpp
-  ScoreManager.cpp
-  Soundtrack.cpp
-  Generowanie kodu...
+﻿  ScoreManager.cpp
   DLL.vcxproj -> P:\proj\KangarooTower\x64\Debug\DLL.dll
   P:\proj\DLL\API.h
   P:\proj\DLL\Background.h

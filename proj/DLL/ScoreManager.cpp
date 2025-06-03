@@ -94,24 +94,34 @@ void ScoreManager::saveScoreToFile(const std::string& nick)
 
 //Odczyt z pliku
 
-std::vector<std::string> ScoreManager::getScoresAsStrings() 
+std::vector<std::string> ScoreManager::getScoresAsStrings()
 {
-    std::vector<std::string> results;
+    std::vector<std::pair<std::string, int>> scores;
     try {
         std::ifstream file("scores.txt");
         if (!file) throw std::ios_base::failure("Nie udalo sie otworzyc pliku do odczytu.");
 
         std::string name;
         int s;
-        while (file >> name >> s) 
-        {
-            results.push_back(name + ": " + std::to_string(s));
+        while (file >> name >> s) {
+            scores.emplace_back(name, s);
         }
-    }
-    catch (const std::exception& e) 
-    {
-        results.push_back(std::string("Blad odczytu wynikow: ") + e.what());
-    }
 
-    return results;
+        // Sortuj malej¹co po wyniku
+        std::sort(scores.begin(), scores.end(), [](const auto& a, const auto& b) {
+            return a.second > b.second;
+            });
+
+        // Przygotuj tylko top 10 wyników
+        std::vector<std::string> results;
+        int count = 0;
+        for (const auto& entry : scores) {
+            if (count++ >= 12) break;
+            results.push_back(entry.first + ": " + std::to_string(entry.second));
+        }
+        return results;
+    }
+    catch (const std::exception& e) {
+        return { std::string("Blad odczytu wynikow: ") + e.what() };
+    }
 }
